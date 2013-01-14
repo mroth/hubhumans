@@ -32,7 +32,7 @@ Would produce the following output:
 
 You may want to set up a cron task to periodically do the following to keep yours up to date:
 
-    ruby humans.rb myorgname > /path/to/www/humans.txt
+    ruby hubhuman.rb myorgname > /path/to/www/humans.txt
 
 Easy!
 
