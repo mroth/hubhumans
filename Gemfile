@@ -1,3 +1,4 @@
-source :rubygems
+source 'https://rubygems.org'
 
-gem 'octokit'
+# Specify your gem's dependencies in hubhumans.gemspec
+gemspec
