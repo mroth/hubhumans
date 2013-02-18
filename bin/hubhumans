@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+begin
+  require 'hubhumans'
+rescue LoadError
+  require 'rubygems'
+  require 'hubhumans'
+end
+include Hubhumans
+
+def bail
+  abort "usage: #{File.basename(__FILE__)} [organization_name]"
+end
+
+bail if ARGV[0].nil?
+puts Humanifier.new.render_for_org(ARGV[0])
