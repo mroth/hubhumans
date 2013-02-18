@@ -3,9 +3,11 @@ require 'spec_helper'
 include Hubhumans
 
 describe Humanifier do
-  it "should be instantiated without any args" do
-    lambda { Humanifier.new() }.should_not raise_error
-    lambda { Humanifier.new( "moo ") }.should raise_error(ArgumentError)
+  describe ".new" do
+    it "should be instantiated without any args" do
+      lambda { Humanifier.new() }.should_not raise_error
+      lambda { Humanifier.new( "moo ") }.should raise_error(ArgumentError)
+    end
   end
 
   describe '#render_user' do
