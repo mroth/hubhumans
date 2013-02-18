@@ -13,5 +13,4 @@ def bail
 end
 
 bail if ARGV[0].nil?
-# Hubhumans.humanify(ARGV[0])
 puts Humanifier.new.render_for_org(ARGV[0])
