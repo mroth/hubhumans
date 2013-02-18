@@ -3,18 +3,30 @@ require "octokit"
 
 module Hubhumans
   
-  def Hubhumans.humanify(org_name)
-    client = Octokit::Client.new(:auto_traversal => true)
-    gh_org = client.organization_members(org_name)
-    puts "/* TEAM */"
-    puts
-    gh_org.each do |member|
-      user = client.user member.login
-      puts "  #{user.name} (#{user.login})"
-      puts "  Site: #{user.blog}" unless user.blog.nil?
-      puts "  Location: #{user.location}" unless user.location.nil?
-      puts
+  class Humanifier
+
+    def initialize
+      @client = Octokit::Client.new(:auto_traversal => true)
     end
+
+    def render_for_org(org_name)
+      gh_org = @client.organization_members(org_name)
+      output = "/* TEAM */\n"
+      gh_org.each do |member|
+        output << self.render_user(member.login)
+      end
+      output
+    end
+
+    def render_user(login)
+      user = @client.user(login)
+      output = ""
+      output << "  #{user.name} (#{user.login})\n"
+      output << "  Site: #{user.blog}\n" unless user.blog.nil?
+      output << "  Location: #{user.location}\n" unless user.location.nil?
+      output + "\n"
+    end
+
   end
 
 end
