@@ -11,6 +11,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{Automatically create a `humans.txt` file based upon public members of a GitHub organization.}
   gem.summary       = %q{Automatically create a `humans.txt` file based upon public members of a GitHub organization.}
   gem.homepage      = "http://github.com/mroth/hubhumans"
+  gem.licenses     = ['MIT']
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
