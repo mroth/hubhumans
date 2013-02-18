@@ -19,7 +19,6 @@ describe Humanifier do
       humanifier.client.should_receive(:user).and_return(@user)
     end
 
-    it "should throw an error if passed a user it doesnt understand"
     it "should render appropriate text for a user" do
       humanifier.render_user('mroth').should == "  Matthew Rothenberg (mroth)\n  Site: http://mroth.info\n  Location: Brooklyn, NY\n\n"
     end
@@ -29,11 +28,11 @@ describe Humanifier do
     end
     it "should properly omit location if user doesnt have one" do
       @user.stub(:location) { nil }
-      humanifier.render_user('mroth').should == "  Matthew Rothenberg (mroth)\n  Site: http://mroth.info\n\n"
+      humanifier.render_user('mroth').should_not match(/^  Location:/)
     end
     it "should properly omit blog if user doesnt have one" do
       @user.stub(:blog) { nil }
-      humanifier.render_user('mroth').should == "  Matthew Rothenberg (mroth)\n  Location: Brooklyn, NY\n\n"
+      humanifier.render_user('mroth').should_not match(/^  Site:/)
     end
   end
 end
