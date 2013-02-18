@@ -20,4 +20,5 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency "octokit", "~> 1.23.0"
   gem.add_development_dependency "rspec", "~> 2.12.0"
+  gem.add_development_dependency "rake", "~> 10.0.3"
 end
