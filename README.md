@@ -1,6 +1,8 @@
-# HubHuman
+# HubHumans
 
 Automatically create a `humans.txt` file based upon public members of a GitHub organization.
+
+[![Build Status](https://travis-ci.org/mroth/hubhumans.png?branch=master)](https://travis-ci.org/mroth/hubhumans)
 
 ## Wut?
 
